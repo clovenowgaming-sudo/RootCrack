@@ -1,3 +1,5 @@
+import java.net.URI
+
 plugins {
     alias(libs.plugins.agp.app)
     alias(libs.plugins.kotlin.android)
@@ -113,7 +115,7 @@ fun registerDownload(taskName: String, url: String, dest: String) {
             f.parentFile.mkdirs()
             if (!f.exists()) {
                 println(" - downloading $url")
-                java.net.URI.create(url).toURL().openStream().use { input ->
+                URI.create(url).toURL().openStream().use { input ->
                     f.outputStream().use { input.copyTo(it) }
                 }
             }
