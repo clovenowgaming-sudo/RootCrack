@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">RootCrack</string>
+    <string name="webui">WebUI</string>
+    <string name="home">Home</string>
+    <string name="install">Install</string>
+    <string name="modules">Modules</string>
+    <string name="kpm">KPM</string>
+    <string name="superuser">SuperUser</string>
+    <string name="settings">Settings</string>
+</resources>

@@ -1,0 +1,2 @@
+-keep class com.root.crack.Natives { *; }
+-keepattributes *Annotation*

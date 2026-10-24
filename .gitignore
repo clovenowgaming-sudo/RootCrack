@@ -1,0 +1,14 @@
+.gradle/
+build/
+.idea/
+*.iml
+local.properties
+.cxx/
+app/libs/arm64-v8a/*.so
+app/src/main/assets/kpimg
+app/src/main/assets/kptools
+app/src/main/assets/*_kernelpatch.ko
+daemon/target/
+*.keystore
+*.jks
+.DS_Store
