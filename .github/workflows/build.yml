@@ -35,8 +35,18 @@ jobs:
         with:
           ndk-version: r27c
 
-      - name: Set up Android SDK cmdline-tools
-        uses: android-actions/setup-android@v3
+      # ubuntu-latest runners already ship a full Android SDK at $ANDROID_HOME.
+      # (android-actions/setup-android@v3 tries to install the legacy "tools"
+      # package, which Google removed from the SDK repository — it always
+      # fails now. We don't need it: just accept licenses and make sure the
+      # platform/build-tools this project targets are present.)
+      - name: Accept Android SDK licenses & install required packages
+        run: |
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager \
+            "platform-tools" \
+            "platforms;android-35" \
+            "build-tools;35.0.0"
 
       - name: Cache Gradle
         uses: actions/cache@v4
